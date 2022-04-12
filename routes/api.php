@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,9 @@ Route::get('/employee/get/{id}',[EmployeeController::class,'get']);
 Route::post('/employee/add',[EmployeeController::class,'addEmployee']);
 Route::put('/employee/update/{id}',[EmployeeController::class,'updateEmployee']);
 Route::post('/employee/delete/{id}',[EmployeeController::class,'deleteEmployee']);
+
+//Customer
+Route::get('/customer/all',[CustomerController::class,'getAll']);
+Route::get('/customer/get/{id}',[CustomerController::class,'get']);
+Route::post('/registration/',[CustomerController::class,'Registration']);
+Route::post('/customer/delete/{id}',[CustomerController::class,'deleteCustomer']);
