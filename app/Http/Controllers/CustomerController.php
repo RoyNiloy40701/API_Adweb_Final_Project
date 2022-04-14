@@ -33,7 +33,7 @@ class CustomerController extends Controller
      }
 
 
-     public function Registration(Request $req){
+    public function Registration(Request $req){
         try{
             $customer=new Customer();
             $customer->CNAME = $req->CNAME;
@@ -59,12 +59,7 @@ class CustomerController extends Controller
        catch(\Exception $ex){
            return response()->json(["msg"=>"Registration Failed"],500);
        }
+    }
                    
-   }
-
-
-
-
-
 
 }
