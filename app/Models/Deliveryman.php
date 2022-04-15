@@ -10,4 +10,11 @@ class Deliveryman extends Model
     use HasFactory;
     public $timestamps=false;
     protected $primaryKey = 'DID';
+
+    public function orders(){
+        return $this->hasMany(Order::class,'DID');
+    }
+   
+
+   
 }

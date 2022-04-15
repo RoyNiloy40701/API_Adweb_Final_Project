@@ -68,7 +68,7 @@ class CategoryController extends Controller
     public function detailsCategory(Request $req){
      $category = Category::where('CATEGORYID',$req->id)->first();
      if($category){
-        
+         
       $category->products = $category->products;
       return response()->json($category,200);   
      

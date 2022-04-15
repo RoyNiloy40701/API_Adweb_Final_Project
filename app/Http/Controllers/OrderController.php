@@ -18,7 +18,7 @@ class OrderController extends Controller
 
         if($order){
             $order->customer = $order->customer; 
-            $order->deliveryman = $order->deliveryman; 
+            $order->Deliveryman = $order->deliveryman; 
             return response()->json($order,200);
         }
         return response()->json(["msg"=>"Order Not Found"],404);

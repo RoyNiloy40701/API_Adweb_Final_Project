@@ -16,6 +16,7 @@ class DeliverymanController extends Controller
     public function get(Request $req){
         $deliveryman=Deliveryman::where('DID',$req->id)->first();
         if($deliveryman){
+            $deliveryman->orders=$deliveryman->orders;
             return response()->json($deliveryman,200);
         }
         return response()->json(["msg"=>"Deliveryman Not Found"],404);
