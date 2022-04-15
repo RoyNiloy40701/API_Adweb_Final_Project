@@ -18,10 +18,32 @@ class OrderController extends Controller
 
         if($order){
             $order->customer = $order->customer; 
+            $order->deliveryman = $order->deliveryman; 
             return response()->json($order,200);
         }
         return response()->json(["msg"=>"Order Not Found"],404);
     }
+    public function updateOrder(Request $req){
+         $order= Order::where('OID',$req->id)->first();
+        if( $order){
+            try{
+                 $order->DID = $req->DID;
+                 $order->OSTATUS = $req->OSTATUS;
+                 $order->save();
+                if( $order->save()){
+        
+                    return response()->json(["msg"=>" Order Updated Successfully"],200);
+                }
+             }
+             catch(\Exception $ex){
+                 return response()->json(["msg"=>" Order could not updated"],500);
+             }
+               
+        }
+        return response()->json(["msg"=>" Order Not Found"],404);
+         
+    }
+    
 
     public function deleteOrder($id){
         $order=Order::where('OID',$id)->first();

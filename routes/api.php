@@ -59,6 +59,7 @@ Route::post('/employee/delete/{id}',[EmployeeController::class,'deleteEmployee']
 //Deliveryman
 Route::get('/deliveryman/all',[DeliverymanController::class,'getAll']);
 Route::post('/deliveryman/add',[DeliverymanController::class,'addDeliveryman']);
+Route::get('/deliveryman/get/{id}',[DeliverymanController::class,'get']);
 Route::put('/deliveryman/update/{id}',[DeliverymanController::class,'updateDeliveryman']);
 Route::post('/deliveryman/delete/{id}',[DeliverymanController::class,'deleteDeliveryman']);
 
@@ -70,6 +71,7 @@ Route::post('/deliveryman/delete/{id}',[DeliverymanController::class,'deleteDeli
 //Order
 Route::get('/order/all',[OrderController::class,'getAll']);
 Route::get('/order/get/{id}',[OrderController::class,'get']);
+Route::put('/order/update/{id}',[OrderController::class,'updateOrder']);
 Route::post('/order/delete/{id}',[OrderController::class,'deleteOrder']);
 
 

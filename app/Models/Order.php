@@ -10,9 +10,13 @@ class Order extends Model
     use HasFactory;
     public $timestamps=false;
     protected $primaryKey = 'OID';
-    
+
     public function customer()
     {
         return $this->belongsTo(Customer::class,'CID');
+    }
+    public function deliveryman()
+    {
+        return $this->belongsTo(Deliveryman::class,'DID');
     }
 }
