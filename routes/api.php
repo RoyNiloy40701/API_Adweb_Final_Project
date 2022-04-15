@@ -35,16 +35,12 @@ Route::put('/product/update/{id}',[ProductController::class,'updateProduct']);
 Route::post('/product/delete/{id}',[ProductController::class,'deleteProduct']);
 
 
-
 //Category
 Route::get('/category/all',[CategoryController::class,'getAll']);
 Route::post('/category/add',[CategoryController::class,'addCategory']);
 Route::put('/category/update/{id}',[CategoryController::class,'updateCategory']);
 Route::post('/category/delete/{id}',[CategoryController::class,'deleteCategory']);
 Route::get('/category/details/{id}',[CategoryController::class,'detailsCategory']);
-
-
-
 
 
 //Employee
@@ -55,17 +51,12 @@ Route::put('/employee/update/{id}',[EmployeeController::class,'updateEmployee'])
 Route::post('/employee/delete/{id}',[EmployeeController::class,'deleteEmployee']);
 
 
-
 //Deliveryman
 Route::get('/deliveryman/all',[DeliverymanController::class,'getAll']);
 Route::post('/deliveryman/add',[DeliverymanController::class,'addDeliveryman']);
 Route::get('/deliveryman/get/{id}',[DeliverymanController::class,'get']);
 Route::put('/deliveryman/update/{id}',[DeliverymanController::class,'updateDeliveryman']);
 Route::post('/deliveryman/delete/{id}',[DeliverymanController::class,'deleteDeliveryman']);
-
-
-
-
 
 
 //Order
@@ -76,14 +67,11 @@ Route::post('/order/delete/{id}',[OrderController::class,'deleteOrder']);
 
 
 
-
-
 //Customer
 Route::get('/customer/all',[CustomerController::class,'getAll']);
 Route::get('/customer/get/{id}',[CustomerController::class,'get']);
 Route::post('/registration/',[CustomerController::class,'Registration']);
 Route::post('/customer/delete/{id}',[CustomerController::class,'deleteCustomer']);
-
 
 
 
