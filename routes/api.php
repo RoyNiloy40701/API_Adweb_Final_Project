@@ -8,6 +8,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DeliverymanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,8 +55,18 @@ Route::put('/employee/update/{id}',[EmployeeController::class,'updateEmployee'])
 Route::post('/employee/delete/{id}',[EmployeeController::class,'deleteEmployee']);
 
 
-//Order
 
+//Deliveryman
+Route::get('/deliveryman/all',[DeliverymanController::class,'getAll']);
+Route::post('/deliveryman/add',[DeliverymanController::class,'addDeliveryman']);
+Route::put('/deliveryman/update/{id}',[DeliverymanController::class,'updateDeliveryman']);
+
+
+
+
+
+
+//Order
 Route::get('/order/all',[OrderController::class,'getAll']);
 Route::get('/order/get/{id}',[OrderController::class,'get']);
 Route::post('/order/delete/{id}',[OrderController::class,'deleteOrder']);

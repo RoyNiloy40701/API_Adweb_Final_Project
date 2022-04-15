@@ -60,7 +60,7 @@ class EmployeeController extends Controller
         try{
             $employee->ENAME = $req->ENAME;
             $employee->EEMAIL= $req->EEMAIL ;
-            $employee->EPASSWORD = md5($req->EPASSWORD);
+            // $employee->EPASSWORD = md5($req->EPASSWORD);
             $employee->EPHONE = $req->EPHONE;
             $employee->ESALARY = $req->ESALARY;
             $employee->EADDRESS = $req->EADDRESS;
