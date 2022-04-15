@@ -7,6 +7,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,14 @@ Route::get('/employee/get/{id}',[EmployeeController::class,'get']);
 Route::post('/employee/add',[EmployeeController::class,'addEmployee']);
 Route::put('/employee/update/{id}',[EmployeeController::class,'updateEmployee']);
 Route::post('/employee/delete/{id}',[EmployeeController::class,'deleteEmployee']);
+
+
+//Order
+
+Route::get('/order/all',[OrderController::class,'getAll']);
+Route::get('/order/get/{id}',[OrderController::class,'get']);
+Route::post('/order/delete/{id}',[OrderController::class,'deleteOrder']);
+
 
 
 
