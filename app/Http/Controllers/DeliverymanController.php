@@ -83,4 +83,19 @@ class DeliverymanController extends Controller
     return response()->json(["msg"=>"Deliveryman  Not Found"],404);
      
 }
+
+
+
+public function deleteDeliveryman($id){
+    $Deliveryman=Deliveryman::where('DID',$id)->first();
+      if($Deliveryman){ 
+        $Deliveryman= $Deliveryman->delete();
+        if ($Deliveryman){
+            return response()->json(["msg"=>"DeliverymanDelete Successfully"],200);
+           }
+           return response()->json(["msg"=>"Deliveryman Delete Failed"],500);
+       }
+       return response()->json(["msg"=>"Deliveryman Not Found"],404);
+   }
+
 }

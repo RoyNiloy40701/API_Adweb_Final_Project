@@ -60,6 +60,7 @@ Route::post('/employee/delete/{id}',[EmployeeController::class,'deleteEmployee']
 Route::get('/deliveryman/all',[DeliverymanController::class,'getAll']);
 Route::post('/deliveryman/add',[DeliverymanController::class,'addDeliveryman']);
 Route::put('/deliveryman/update/{id}',[DeliverymanController::class,'updateDeliveryman']);
+Route::post('/deliveryman/delete/{id}',[DeliverymanController::class,'deleteDeliveryman']);
 
 
 
