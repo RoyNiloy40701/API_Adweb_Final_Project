@@ -23,6 +23,8 @@ class OrderController extends Controller
         }
         return response()->json(["msg"=>"Order Not Found"],404);
     }
+
+    
     public function updateOrder(Request $req){
          $order= Order::where('OID',$req->id)->first();
         if( $order){
