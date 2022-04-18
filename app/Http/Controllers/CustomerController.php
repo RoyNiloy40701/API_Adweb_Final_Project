@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Customer;
 
+use App\Models\Pending_user;
+
 class CustomerController extends Controller
 {
     //
@@ -34,21 +36,23 @@ class CustomerController extends Controller
 
 
     public function Registration(Request $req){
-        try{
-            $customer=new Customer();
+         try{
+            // Pending_user
+
+            $customer=new Pending_user();
             $customer->CNAME = $req->CNAME;
             $customer->CEMAIL= $req->CEMAIL;
             $customer->CPASSWORD = md5($req->CPASSWORD);
-            $customer->CADDRESS = $req->CADDRESS;
+            // $customer->CADDRESS = $req->CADDRESS;
             $customer->CPHONE = $req->CPHONE;
-            if($req->hasfile('CPICTURE')){
-                $file=$req->file('CPICTURE');
-                $extension=$file->getClientOriginalExtension();
-                $filename=time().'.'. $extension;
-                $file->move('uploads/customers/',$filename);
-                $customer->CPICTURE = $filename;
+            // if($req->hasfile('CPICTURE')){
+            //     $file=$req->file('CPICTURE');
+            //     $extension=$file->getClientOriginalExtension();
+            //     $filename=time().'.'. $extension;
+            //     $file->move('uploads/customers/',$filename);
+            //     $customer->CPICTURE = $filename;
 
-            }
+            // }
            
             $customer->save();
            if( $customer->save()){

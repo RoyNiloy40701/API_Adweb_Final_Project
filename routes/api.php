@@ -82,5 +82,7 @@ Route::put('/manager/update/{id}',[ManagerController::class,'updateManager']);
 
 //Login
 Route::post('/login',[PagesController::class,'login']);
+Route::post('/mail',[PagesController::class,'mail']);
+Route::post('/verifyOTP',[PagesController::class,'verifyOTP']);
 
 
