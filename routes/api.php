@@ -9,6 +9,7 @@ use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DeliverymanController;
+use App\Http\Controllers\PagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +80,7 @@ Route::post('/customer/delete/{id}',[CustomerController::class,'deleteCustomer']
 Route::get('/manager/get/{id}',[ManagerController::class,'get']);
 Route::put('/manager/update/{id}',[ManagerController::class,'updateManager']);
 
-
+//Login
+Route::post('/login',[PagesController::class,'login']);
 
 
