@@ -32,7 +32,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/product/all',[ProductController::class,'getAll']);
 Route::get('/product/get/{id}',[ProductController::class,'get']);
 Route::post('/product/add',[ProductController::class,'addProduct']);
-Route::put('/product/update/{id}',[ProductController::class,'updateProduct']);
+Route::post('/product/update/{id}',[ProductController::class,'updateProduct']);
 Route::post('/product/delete/{id}',[ProductController::class,'deleteProduct']);
 
 
@@ -48,7 +48,7 @@ Route::get('/category/details/{id}',[CategoryController::class,'detailsCategory'
 Route::get('/employee/all',[EmployeeController::class,'getAll']);
 Route::get('/employee/get/{id}',[EmployeeController::class,'get']);
 Route::post('/employee/add',[EmployeeController::class,'addEmployee']);
-Route::put('/employee/update/{id}',[EmployeeController::class,'updateEmployee']);
+Route::post('/employee/update/{id}',[EmployeeController::class,'updateEmployee']);
 Route::post('/employee/delete/{id}',[EmployeeController::class,'deleteEmployee']);
 
 
@@ -56,7 +56,7 @@ Route::post('/employee/delete/{id}',[EmployeeController::class,'deleteEmployee']
 Route::get('/deliveryman/all',[DeliverymanController::class,'getAll']);
 Route::post('/deliveryman/add',[DeliverymanController::class,'addDeliveryman']);
 Route::get('/deliveryman/get/{id}',[DeliverymanController::class,'get']);
-Route::put('/deliveryman/update/{id}',[DeliverymanController::class,'updateDeliveryman']);
+Route::post('/deliveryman/update/{id}',[DeliverymanController::class,'updateDeliveryman']);
 Route::post('/deliveryman/delete/{id}',[DeliverymanController::class,'deleteDeliveryman']);
 
 

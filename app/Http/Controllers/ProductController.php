@@ -68,13 +68,21 @@ class ProductController extends Controller
                 $product->PCATEGORYID =  $req->PCATEGORYID;
                 $product->MID= $req->MID;
                 $product->PSTOCK = $req->PSTOCK;
+                // if($req->hasfile('PPICTURE')){
+                //     $file=$req->file('PPICTURE');
+                //     $extension=$file->getClientOriginalExtension();
+                //     $filename=time().'.'. $extension;
+                //     $file->move('uploads/products/',$filename);
+                //     $product->PPICTURE = $filename;
+    
+                // }
                 if($req->hasfile('PPICTURE')){
                     $file=$req->file('PPICTURE');
                     $extension=$file->getClientOriginalExtension();
                     $filename=time().'.'. $extension;
                     $file->move('uploads/products/',$filename);
                     $product->PPICTURE = $filename;
-        
+    
                 }
                 $product->save();
                 if($product->save()){

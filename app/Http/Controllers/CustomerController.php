@@ -43,16 +43,9 @@ class CustomerController extends Controller
             $customer->CNAME = $req->CNAME;
             $customer->CEMAIL= $req->CEMAIL;
             $customer->CPASSWORD = md5($req->CPASSWORD);
-            // $customer->CADDRESS = $req->CADDRESS;
+         
             $customer->CPHONE = $req->CPHONE;
-            // if($req->hasfile('CPICTURE')){
-            //     $file=$req->file('CPICTURE');
-            //     $extension=$file->getClientOriginalExtension();
-            //     $filename=time().'.'. $extension;
-            //     $file->move('uploads/customers/',$filename);
-            //     $customer->CPICTURE = $filename;
-
-            // }
+          
            
             $customer->save();
            if( $customer->save()){

@@ -13,11 +13,11 @@ class PagesController extends Controller
 {
     //
     public function login(Request $req){
-        
-        $man = Manager::where('MEMAIL',$req->MEMAIL)
-        ->where('MPASSWORD',md5($req->MPASSWORD))
+        $customer=Customer::where('CID',$req->id)->first();
+        $man = Customer::where('CEMAIL',$req->CEMAIL)
+        ->where('CPASSWORD',md5($req->CPASSWORD))
         ->first();
-     
+    
        
         if($man){
            
@@ -43,13 +43,13 @@ class PagesController extends Controller
 
             Session::put('otp', $otp);
 
-           
+            // $user = user::where('email','=',$emailAddress)->update(['OTP' => $otp]);
 
             $messages->to($user['to']);
 
             $messages->subject('Your OTP is : '. $otp);
 
-           
+            // $messages->body('Your OTP is : '. $otp);
 
         });
 
@@ -62,26 +62,26 @@ class PagesController extends Controller
     public function verifyOTP(Request $req){
 
         $pendingUser = Pending_user::where('OTP', $req->OTP)->first();
-
-       
-       try{
+       if($pendingUser){
+        try{
 
         $customer=new Customer();
         $customer->CNAME = $pendingUser->CNAME;
         $customer->CEMAIL= $pendingUser->CEMAIL;
-        $customer->CPASSWORD = md5($pendingUser->CPASSWORD);
+        $customer->CPASSWORD =($pendingUser->CPASSWORD);
         // $customer->CADDRESS = $req->CADDRESS;
         $customer->CPHONE = $pendingUser->CPHONE;
 
         $customer->save();
         if( $customer->save()){
-
+            $pendingUser= $pendingUser->delete();
             return response()->json(["msg"=>" Registration Successfully"],200);
         }
         }
-     }
-    catch(\Exception $ex){
+         catch(\Exception $ex){
         return response()->json(["msg"=>"Registration Failed"],500);
      }
     }
+    return response()->json(["msg"=>"Please enter correct OTP"],500);
+}
 }
