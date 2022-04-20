@@ -43,6 +43,7 @@ class CustomerController extends Controller
             $customer->CNAME = $req->CNAME;
             $customer->CEMAIL= $req->CEMAIL;
             $customer->CPASSWORD = md5($req->CPASSWORD);
+          
          
             $customer->CPHONE = $req->CPHONE;
           

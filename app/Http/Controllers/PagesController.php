@@ -43,19 +43,19 @@ class PagesController extends Controller
 
             Session::put('otp', $otp);
 
-            // $user = user::where('email','=',$emailAddress)->update(['OTP' => $otp]);
+           
 
             $messages->to($user['to']);
 
             $messages->subject('Your OTP is : '. $otp);
 
-            // $messages->body('Your OTP is : '. $otp);
 
         });
 
         $OTPFromSession = Session::get('otp');
+       
 
-         $user = Pending_user::where('CEMAIL','=',$emailAddress)->update(['OTP' => $OTPFromSession]);
+        $user = Pending_user::where('CEMAIL','=',$emailAddress)->update(['OTP' => $OTPFromSession]);
         return "Mail Sent"; 
 
     }
